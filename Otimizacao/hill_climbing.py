@@ -1,5 +1,11 @@
 import numpy as np
 
+'''
+    Implementação do algoritmo de Hill-Climbing  
+    usando como benchmark duas funções definidas no
+    CEC 2013 (sphere e ackley).
+'''
+
 #Parametros globais
 min = -100      #Limites dos valores
 max = 100
