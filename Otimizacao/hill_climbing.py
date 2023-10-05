@@ -17,7 +17,11 @@ def main():
     #a = hill_climbing(100000, perc, 0, 0)
     #print(a)
     #print(np.linalg.norm(a))
-    grid_search()
+    #grid_search()
+
+    res, qRes = hill_climbing(10000, 1, None, None)
+    print(qRes, end=' ')
+    print(res)
 
 def grid_search():
     parametros = {'raio': [1, 2, 5, 10, 20, 30, 50],
@@ -46,8 +50,8 @@ def hill_climbing(n, perc, p, r):
     S = np.random.uniform(min * perc, max * perc, d)
     qS = Quality(S)
     for _ in range(n):
-        #R = Tweak_one()
-        R = Tweak_two(p, r, np.copy(S))
+        R = Tweak_one()
+        #R = Tweak_two(p, r, np.copy(S))
         qR = Quality(R)
         if qR < qS:
             S = R
@@ -56,8 +60,8 @@ def hill_climbing(n, perc, p, r):
 
 #Função para calcular qualidade
 def Quality(a):
-    #return sphere_function(a)
-    return ackley_function(a)
+    return sphere_function(a)
+    #return ackley_function(a)
 
 #Implementação do algoritmo 7 do livro Essentials of Metaheuristics
 def Tweak_one():
